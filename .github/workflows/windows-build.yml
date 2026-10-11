@@ -1,3 +1,4 @@
+
 name: Build Windows Installer
 
 on:
@@ -5,9 +6,13 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   build-windows:
     runs-on: windows-latest
+
     steps:
       - name: Checkout project
         uses: actions/checkout@v4
@@ -22,7 +27,9 @@ jobs:
         run: npm ci
 
       - name: Build Windows installer
-        run: npm run desktop:dist -- --win
+        run: npm run desktop:dist -- --win --publish never
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload installer
         uses: actions/upload-artifact@v4
