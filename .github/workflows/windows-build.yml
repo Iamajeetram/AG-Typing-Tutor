@@ -1,4 +1,4 @@
-```yaml
+yaml
 name: Build Windows Installer
 
 on:
@@ -31,4 +31,3 @@ jobs:
           name: AG-Typing-Tutor-Windows-Installer
           path: release/*.exe
           if-no-files-found: error
-```
