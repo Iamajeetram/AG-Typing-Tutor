@@ -1,0 +1,25 @@
+/* Print only the report, not the app navigation or controls. */
+@media print {
+  @page { size: auto; margin: 14mm; }
+  body * { visibility: hidden !important; }
+  #typing-result, #typing-result *, #saved-report, #saved-report * { visibility: visible !important; }
+  #typing-result, #saved-report { position: absolute !important; inset: 0 auto auto 0 !important; width: 100% !important; max-width: none !important; margin: 0 !important; padding: 0 !important; border: 0 !important; box-shadow: none !important; background: #fff !important; color: #111 !important; }
+  #typing-result[hidden] { display: none !important; }
+  .screen-only, .report-actions, #clear-history, .text-button { display: none !important; }
+  .report-heading h3, .report-detail-grid strong, .report-comparison h4 { color: #111 !important; }
+  .report-heading p, .report-detail-grid span, .report-footnote { color: #444 !important; }
+  .report-detail-grid { border-color: #bbb !important; }
+  .report-detail-grid > div { border-color: #ddd !important; break-inside: avoid; }
+  .report-comparison, .report-passage { background: #fff !important; border-color: #bbb !important; }
+  .report-passage, .report-typed { color: #111 !important; }
+  .report-metrics { grid-template-columns: repeat(4, 1fr) !important; }
+  .typing-result { padding: 0 !important; }
+}
+
+@media print {
+  .word-legend, .lesson-list, .game-stage, .typing-workspace > :not(#typing-result) { display:none !important; }
+  .report-detail-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  .report-comparison { break-inside: avoid; }
+  .word-status-correct { color:#16803d !important; }
+  .word-status-incorrect { color:#c62828 !important; }
+}
