@@ -1,3 +1,4 @@
+```yaml
 name: Build Windows Installer
 
 on:
@@ -22,7 +23,7 @@ jobs:
         run: npm ci
 
       - name: Build Windows installer
-        run: npm run desktop:dist -- --win
+        run: npm run desktop:dist -- --win --publish never
 
       - name: Upload installer
         uses: actions/upload-artifact@v4
@@ -30,3 +31,4 @@ jobs:
           name: AG-Typing-Tutor-Windows-Installer
           path: release/*.exe
           if-no-files-found: error
+```
